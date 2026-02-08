@@ -3,7 +3,6 @@
 import { Routes, Route } from "react-router-dom"
 
 import Home from "./pages/Home.tsx"
-import Datenschutz from "./pages/Datenschutz.tsx"
 import Impressum from "./pages/Impressum.tsx"
 
 export default function App() {

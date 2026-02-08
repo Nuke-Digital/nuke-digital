@@ -4,7 +4,6 @@ import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillMail } from "react-icons/ai";
 
 import { motion } from "framer-motion"
-import { s } from "framer-motion/m";
 
 export default function Home(){
     const email = "info@nuke-digital.com"

@@ -6,18 +6,9 @@ export default function Home() {
   const subjekt = "Anfrage";
 
   return (
-    <div className="min-h-dvh bg-slate-900">
+    <div className="min-h-[200vh]">
       {/* Header */}
-      <header className="flex items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
-        <a href="/" className="shrink-0">
-          <img
-            className="h-10 w-auto sm:h-12 md:h-14"
-            src="/g6.png"
-            alt="Nuke Digital"
-          />
-        </a>
-
-        <motion.a
+        {/*<motion.a
           initial={{ scale: 1 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
@@ -28,8 +19,7 @@ export default function Home() {
           <div className="bg-slate-900 rounded-full px-4 py-2 sm:px-6">
             <p className="text-white text-sm sm:text-base font-medium">Impressum</p>
           </div>
-        </motion.a>
-      </header>
+        </motion.a>*/}
 
       {/* Main */}
       <main className="px-4 sm:px-6">

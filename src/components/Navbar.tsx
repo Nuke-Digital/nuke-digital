@@ -24,26 +24,28 @@ export const links = [
 
 export default function Navbar() {
 
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(true)
 
   const { scrollY } = useScroll()
 
+  const [isMobile, setIsMobile] = useState(() => 
+    typeof window !== "undefined" && window.innerWidth < 600
+  )
+
   useEffect(() => {
-    if(window.innerWidth <= 612) {
-      setIsExpanded(false);
-      return;
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600)
     }
-  })
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious()
 
     if (typeof current !== "number" || typeof previous !== "number") return
-
-    if(window.innerWidth <= 612) {
-      setIsExpanded(false);
-      return;
-    }
 
     // Wenn man fast ganz oben ist → Navbar ausblenden (wie Nahbar: < 0.05)
     if (current < 50) {
@@ -58,7 +60,7 @@ export default function Navbar() {
   })
 
   return (
-    <div id='navbar' className='flex font-semibold justify-center flex-row fixed w-full top-0 z-50 md:text-md text-sm' >
+    <div id='navbar' className='flex font-semibold justify-center flex-row fixed w-full top-0 z-50 md:text-md text-sm px-4' >
       <div className='lg:mx-16 mx-4 py-6 flex w-full md:px-12'>
         <div className='flex flex-1 flex-row gap-2 items-center'>
           {/*<img src={Logo} className='size-9'/>
@@ -68,7 +70,7 @@ export default function Navbar() {
         </div>
         <div className='z-20 flex-2 justify-center flex items-center'>
           <ul className=''>
-          {links.map((item) => 
+          {!isMobile && links.map((item) => 
               <NavLink to={item.href} className='p-2'>
                   {item.title}
               </NavLink>
@@ -76,9 +78,14 @@ export default function Navbar() {
           </ul>
         </div>
         <div className='flex-1 flex justify-end items-center'>
-          <div className='px-4 py-2 bg-background-cta hover:bg-background-hover rounded-xl'>
-            <a className=''>
+          <div className='px-4 py-2 bg-background-cta rounded-xl md:block hidden'>
+            <a href='mailto:kontakt@nuke-digital.com' className=''>
               Kontaktieren
+            </a>
+          </div>
+          <div className='rounded-xl md:hidden block p-2'>
+            <a href='mailto:kontakt@nuke-digital.com'>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill='#fcfcfc' d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
             </a>
           </div>
         </div>

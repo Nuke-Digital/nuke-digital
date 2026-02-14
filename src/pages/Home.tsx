@@ -34,7 +34,7 @@ export default function Home() {
     <div className="absolute -z-10 right-10 top-20 w-[37vw] h-60 rotate-[-30deg] bg-primary blur-[120px] rounded-full opacity-60" />
     <div className="absolute -z-10 left-0 top-70 w-[70vw] h-62.5 bg-primary blur-[120px] rounded-full opacity-60" />
 
-    <div className="lg:mx-16 mx-4 md:border-l md:border-r md:border-border md:border-dashed -mt-20 mb-1">
+    <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1">
       <Section1/>
 
 

@@ -1,25 +1,42 @@
 import { AiFillInstagram, AiFillTikTok, AiFillLinkedin, AiFillMail } from "react-icons/ai";
-import { motion } from "framer-motion";
+import { motion, transform, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+export const websites = [
+  {
+    id: "1",
+    title: "Mo-Ästhetik"
+  },
+  {
+    id: "2",
+    title: "Mo-Ästhetik"
+  },
+  {
+    id: "3",
+    title: "Mo-Ästhetik"
+  },
+  {
+    id: "4",
+    title: "Mo-Ästhetik"
+  },
+  {
+    id: "5",
+    title: "Mo-Ästhetik"
+  }
+]
 
 export default function Home() {
   const email = "info@nuke-digital.com";
   const subjekt = "Anfrage";
 
   return (
-    <div className="min-h-[200vh]">
-      {/* Header */}
-        {/*<motion.a
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ duration: 0.12 }}
-          href="/impressum"
-          className="p-0.5 rounded-full bg-linear-to-br from-emerald-500 via-teal-300 to-sky-500"
-        >
-          <div className="bg-slate-900 rounded-full px-4 py-2 sm:px-6">
-            <p className="text-white text-sm sm:text-base font-medium">Impressum</p>
-          </div>
-        </motion.a>*/}
+    <div className="relative">
+    <div className="absolute -z-10 right-10 top-20 w-[37vw] h-60 rotate-[-30deg] bg-primary blur-[120px] rounded-full opacity-60" />
+    <div className="absolute -z-10 left-0 top-70 w-[70vw] h-62.5 bg-primary blur-[120px] rounded-full opacity-60" />
+
+    <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1">
+      <Section1/>
+
 
       {/* Main */}
       <main className="px-4 sm:px-6">
@@ -90,5 +107,62 @@ export default function Home() {
         </section>
       </main>
     </div>
+
+    <div className="absolute -z-10 -left-15 -bottom-100 w-200 h-50 bg-primary blur-[120px] rounded-full opacity-60" />
+    <div className="absolute -z-10 left-175 -bottom-50 w-50 h-50 bg-primary blur-[120px] rounded-full opacity-60" />
+  </div>
   );
+}
+
+export const Section1 = () => {
+    const containerRef = useRef(null)
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"],
+    })
+
+    // 4 = Anzahlt der karten/websites
+    const totalDistance = (4) * (432 + 8)
+    const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance])
+
+    return (
+      <div>
+        <section className="flex items-center justify-end h-[75vh] flex-col py-8 mt-15"> 
+          <div className="flex flex-col px-12 gap-4 mr-[40%] justify-center items-center"> 
+            <h1 className="text-6xl font-semibold ">Günstig Profesionelle Webseiten.</h1> 
+            <h3 className="text-tex-secondary">Alternative zu überteurten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
+          </div>           
+        </section>
+          <div ref={containerRef} className="h-[300vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+              <div className="sticky top-0 h-screen w-103 my-0 mx-auto flex items-center justify-start overflow-visibl">
+                  <motion.div className="flex gap-16" style={{ x, willChange: 'transform'}}>
+                   <div
+                     className="shrink-0 border border-border rounded-xl overflow-hidden h-85 w-108 border-xl relative flex flex-col p-16"
+                     key={"mo-aesthetik"}
+                   >
+                     <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                   </div>
+                   <div
+                     className="shrink-0 border border-border rounded-xl overflow-hidden  h-85 w-108 border-xl relative flex flex-col p-16"
+                     key={"mo-aesthetik"}
+                   >
+                     <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                   </div>
+                   <div
+                     className="shrink-0 border border-border rounded-xl overflow-hidden  h-85 w-108 border-xl relative flex flex-col p-16"
+                     key={"mo-aesthetik"}
+                   >
+                     <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                   </div>
+                   <div
+                     className="shrink-0 border border-border rounded-xl overflow-hidden  h-85 w-108 border-xl relative flex flex-col p-16"
+                     key={"mo-aesthetik"}
+                   >
+                     <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                   </div>
+                  </motion.div>
+              </div>
+          </div>
+      </div>
+    )
 }

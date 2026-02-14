@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useMotionValueEvent, useScroll } from 'framer-motion'
 import Logo from './Logo'
 import { NavLink } from 'react-router-dom'
 

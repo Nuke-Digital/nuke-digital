@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import React from 'react'
 
 export default function Logo({isExpanded}: {isExpanded: boolean}) {
   return (

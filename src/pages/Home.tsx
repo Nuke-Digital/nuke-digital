@@ -1,5 +1,5 @@
 import { AiFillInstagram, AiFillTikTok, AiFillLinkedin, AiFillMail } from "react-icons/ai";
-import { motion, transform, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export const websites = [

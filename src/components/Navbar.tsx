@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import Logo from './Logo'
 import { NavLink } from 'react-router-dom'
@@ -24,14 +24,26 @@ export const links = [
 
 export default function Navbar() {
 
-  const [isExpanded, setIsExpanded] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const { scrollY } = useScroll()
+
+  useEffect(() => {
+    if(window.innerWidth <= 612) {
+      setIsExpanded(false);
+      return;
+    }
+  })
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious()
 
     if (typeof current !== "number" || typeof previous !== "number") return
+
+    if(window.innerWidth <= 612) {
+      setIsExpanded(false);
+      return;
+    }
 
     // Wenn man fast ganz oben ist → Navbar ausblenden (wie Nahbar: < 0.05)
     if (current < 50) {
@@ -46,8 +58,8 @@ export default function Navbar() {
   })
 
   return (
-    <div id='navbar' className='flex font-semibold justify-center flex-row fixed w-full top-0 z-50' >
-      <div className='lg:mx-16 mx-4 py-6 flex w-full px-12'>
+    <div id='navbar' className='flex font-semibold justify-center flex-row fixed w-full top-0 z-50 md:text-md text-sm' >
+      <div className='lg:mx-16 mx-4 py-6 flex w-full md:px-12'>
         <div className='flex flex-1 flex-row gap-2 items-center'>
           {/*<img src={Logo} className='size-9'/>
           <h2 className='text-xl lg:block hidden text-white'>NuriKemal Digital</h2>

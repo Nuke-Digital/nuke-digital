@@ -34,7 +34,7 @@ export default function Home() {
     <div className="absolute -z-10 right-10 top-20 w-[37vw] h-60 rotate-[-30deg] bg-primary blur-[120px] rounded-full opacity-60" />
     <div className="absolute -z-10 left-0 top-70 w-[70vw] h-62.5 bg-primary blur-[120px] rounded-full opacity-60" />
 
-    <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1">
+    <div className="lg:mx-16 mx-4 md:border-l md:border-r md:border-border md:border-dashed -mt-20 mb-1">
       <Section1/>
 
 
@@ -128,9 +128,9 @@ export const Section1 = () => {
     return (
       <div>
         <section className="flex items-center justify-end h-[75vh] flex-col py-8 mt-15"> 
-          <div className="flex flex-col px-12 gap-4 mr-[40%] justify-center items-center"> 
+          <div className="flex flex-col px-12 gap-4 md:mr-[40%] justify-center items-center"> 
             <h1 className="text-6xl font-semibold ">Günstig Profesionelle Webseiten.</h1> 
-            <h3 className="text-tex-secondary">Alternative zu überteurten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
+            <h3 className="text-tex-secondary md:text-md text-sm">Alternative zu überteurten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
           </div>           
         </section>
           <div ref={containerRef} className="h-[300vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">

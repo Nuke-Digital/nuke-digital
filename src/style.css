@@ -35,14 +35,14 @@ html {
   overflow-x: hidden;
 }
 
-a {
+#links {
   color: var(--color-text-primary);
   transition-property: color;
   transition-duration: 0.1s;
   transition-timing-function: ease-in-out
 }
 
-a:hover {
+#links:hover {
   color: var(--color-text-hover);
 }
 

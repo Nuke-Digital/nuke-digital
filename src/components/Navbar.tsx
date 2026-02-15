@@ -60,7 +60,7 @@ export default function Navbar() {
   })
 
   return (
-    <div id='navbar' className='flex font-semibold justify-center flex-row fixed w-full top-0 z-50 md:text-md text-sm px-4' >
+    <div id='navbar' className='flex font-semibold justify-center flex-row fixed w-full top-0 z-50 md:text-lg text-md px-4' >
       <div className='lg:mx-16 mx-4 py-6 flex w-full md:px-12'>
         <div className='flex flex-1 flex-row gap-2 items-center'>
           {/*<img src={Logo} className='size-9'/>
@@ -71,7 +71,7 @@ export default function Navbar() {
         <div className='z-20 flex-2 justify-center flex items-center'>
           <ul className=''>
           {!isMobile && links.map((item) => 
-              <NavLink to={item.href} className='p-2'>
+              <NavLink id='links' to={item.href} className='p-2'>
                   {item.title}
               </NavLink>
           )}
@@ -79,12 +79,12 @@ export default function Navbar() {
         </div>
         <div className='flex-1 flex justify-end items-center'>
           <div className='px-4 py-2 bg-background-cta rounded-xl md:block hidden'>
-            <a href='mailto:kontakt@nuke-digital.com' className=''>
+            <a id='links' href='mailto:kontakt@nuke-digital.com' className=''>
               Kontaktieren
             </a>
           </div>
           <div className='rounded-xl md:hidden block p-2'>
-            <a href='mailto:kontakt@nuke-digital.com'>
+            <a id='links' href='mailto:kontakt@nuke-digital.com'>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill='#fcfcfc' d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
             </a>
           </div>

@@ -31,8 +31,10 @@ export default function Home() {
 
   return (
     <div className="relative">
-    <div className="absolute -z-10 right-10 top-20 w-[37vw] h-60 rotate-[-30deg] bg-primary blur-[120px] rounded-full opacity-60" />
-    <div className="absolute -z-10 left-0 top-70 w-[70vw] h-62.5 bg-primary blur-[120px] rounded-full opacity-60" />
+      <div className="absolute w-full h-full overflow-x-hidden">
+        <div className="absolute -z-10 right-10 top-20 w-[37vw] h-60 rotate-[-30deg] bg-primary blur-[120px] rounded-full opacity-60" />
+        <div className="absolute -z-10 left-0 top-70 w-[70vw] h-62.5 bg-primary blur-[120px] rounded-full opacity-60"/>
+      </div>
 
     <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1">
       <Section1/>
@@ -107,9 +109,8 @@ export default function Home() {
         </section>
       </main>
     </div>
-
-    <div className="absolute -z-10 -left-15 -bottom-100 w-200 h-50 bg-primary blur-[120px] rounded-full opacity-60" />
-    <div className="absolute -z-10 left-175 -bottom-50 w-50 h-50 bg-primary blur-[120px] rounded-full opacity-60" />
+      <div className="absolute -z-10 -left-15 -bottom-50 w-[80vw] h-50 bg-primary blur-[120px] rounded-full opacity-60" />
+      <div className="md:block hidden absolute -z-10 left-175 -bottom-50 w-50 h-50 bg-primary blur-[120px] rounded-full opacity-60" />
   </div>
   );
 }
@@ -128,14 +129,46 @@ export const Section1 = () => {
     return (
       <div>
         <section className="flex items-center justify-end h-[75vh] flex-col py-8 mt-15"> 
-          <div className="flex flex-col px-12 gap-4 md:mr-[40%] justify-center items-center"> 
-            <h1 className="text-6xl font-semibold ">Günstig Profesionelle Webseiten.</h1> 
-            <h3 className="text-tex-secondary md:text-md text-sm">Alternative zu überteurten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
+          <div className="flex flex-col px-12 gap-4 justify-center items-center"> 
+            <div className="flex flex-row justify-start w-full">
+              <h1 className="text-7xl font-semibold flex-1">Günstig Profesionelle Webseiten.</h1>
+              <div className="flex-1 self-end flex flex-row gap-4 font-semibold z-50">
+                 <motion.a
+                  initial={false}
+                  whileHover={{
+                    scale: 1.1
+                  }}
+                  href="/"
+                  style={{boxShadow: 
+                      `0 0 2px #00D4FF,
+                        0 0 2px #00D4FF,
+                        0 0 10px #00D4FF`}}
+                  className='p-2 bg-linear-to-br from-primary to-secondary rounded-lg text-center'
+                  >
+                    Anfragen
+                  </motion.a>      
+                 <motion.a
+                  initial={false}
+                  whileHover={{
+                    scale: 1.1
+                  }}
+                  href="/"
+
+                  className='p-2 bg-linear-to-br border-border border from-background-secondary to-background-secondary rounded-lg min-w-24 text-center'
+                  >
+                    Mehr Erfahren
+                  </motion.a>      
+              </div>
+            </div>
+            <div className="flex flex-row justify-start w-full">
+              <h3 className="flex-1 text-tex-secondary md:text-lg text-md">Alternative zu überteurten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
+              <div className="flex-1"/>
+            </div>
           </div>           
         </section>
           <div ref={containerRef} className="h-[300vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-              <div className="sticky top-0 h-screen w-103 my-0 mx-auto flex items-center justify-start overflow-visibl">
-                  <motion.div className="flex gap-16" style={{ x, willChange: 'transform'}}>
+              <div className="sticky top-0 h-screen w-103 my-0 mx-auto flex items-center justify-start overflow-visible">
+                  <motion.div className="flex gap-16 " style={{ x, willChange: 'transform'}}>
                    <div
                      className="shrink-0 border border-border rounded-xl overflow-hidden h-85 w-108 border-xl relative flex flex-col p-16"
                      key={"mo-aesthetik"}

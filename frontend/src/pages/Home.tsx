@@ -185,7 +185,7 @@ export const Section1 = () => {
                      className="shrink-0 border border-border rounded-xl overflow-hidden  h-85 w-108 border-xl relative flex flex-col p-16"
                      key={"mo-aesthetik"}
                    >
-                     <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                     <h1 className="text-xl font-semibold">NuKe Digital</h1>
                    </div>
                    <div
                      className="shrink-0 border border-border rounded-xl overflow-hidden  h-85 w-108 border-xl relative flex flex-col p-16"

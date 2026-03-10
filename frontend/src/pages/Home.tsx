@@ -1,6 +1,6 @@
 import { AiFillInstagram, AiFillTikTok, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import { TbExternalLink } from "react-icons/tb";
-import { motion, useScroll, useSpring, useTransform, useVelocity } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react"
 import MoAesthetikLogo from "/moAesthetikLogo.svg";
 
@@ -124,14 +124,7 @@ export const Section1 = () => {
         target: containerRef,
         offset: ["start start", "end end"],
     })
-
-    const smoothProgress = useSpring(scrollYProgress, {
-      stiffness: 250,  // war 55 → höher = schneller
-      damping: 40,     // war 25 → höher = weniger Overshooting
-      restDelta: 0.001
-    });
     // 4 = Anzahlt der karten/websites
-    240
     let width = window.innerWidth > 600 ? (216 + 16):(240+64)
     const totalDistance = 3 * width;
     const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance], {clamp: false})

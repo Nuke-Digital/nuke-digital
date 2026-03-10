@@ -1,6 +1,6 @@
 import { AiFillInstagram, AiFillTikTok, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import { TbExternalLink } from "react-icons/tb";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, useVelocity } from "framer-motion";
 import { useRef } from "react"
 import MoAesthetikLogo from "/moAesthetikLogo.svg";
 
@@ -48,7 +48,7 @@ export default function Home() {
         <section className="text-white font-bold flex flex-col items-center text-center pt-10 sm:pt-14">
           <span className="py-4 z-50 inline-flex items-center gap-1 bg-linear-to-br text-transparent from-emerald-500 via-teal-300 to-sky-500 bg-clip-text
                            text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-            Coming soon
+            In Bearbeitung 🏗️
           </span>
 
           <span className="inline-flex w-10 justify-center text-4xl sm:text-5xl pb-10 sm:pb-14">
@@ -125,17 +125,25 @@ export const Section1 = () => {
         offset: ["start start", "end end"],
     })
 
+    const smoothProgress = useSpring(scrollYProgress, {
+      stiffness: 250,  // war 55 → höher = schneller
+      damping: 40,     // war 25 → höher = weniger Overshooting
+      restDelta: 0.001
+    });
     // 4 = Anzahlt der karten/websites
-    const totalDistance = (5) * (432 + 8)
-    const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance])
+    240
+    let width = window.innerWidth > 600 ? (216 + 16):(240+64)
+    const totalDistance = 3 * width;
+    const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance], {clamp: false})
+
 
     return (
       <div>
         <section className="flex items-center justify-end h-[75vh]  flex-col py-8 mt-15"> 
           <div className="flex flex-col px-12 gap-4 justify-center items-center"> 
             <div className="flex md:flex-row flex-col justify-start w-full">
-              <h1 className="text-7xl font-semibold flex-2">Günstig Profesionelle Webseiten.</h1>
-              <div className="flex-1 md:self-end justify-end flex flex-row gap-4 font-semibold z-50 md:py-0 py-4">
+              <h1 className="md:text-7xl text-5xl font-semibold flex-2">Günstig Profesionelle Webseiten.</h1>
+              <div className="flex-1 md:self-end justify-start flex flex-row gap-4 font-semibold z-50 md:py-0 py-4">
                  <motion.a
                   initial={false}
                   whileHover={{
@@ -164,16 +172,16 @@ export const Section1 = () => {
               </div>
             </div>
             <div className="flex flex-row justify-start w-full">
-              <h3 className="flex-1 text-tex-secondary md:text-lg text-md">Alternative zu überteurten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
-              <div className="flex-1"/>
+              <h3 className="flex-1 text-tex-secondary md:text-lg text-sm">Alternative zu überteurten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
+              <div className="md:flex-1"/>
             </div>
           </div>           
         </section>
           <div ref={containerRef} className="h-[300vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
               <motion.div className="sticky top-0 w-full pl-16 -mt-[15vh] h-screen items-center my-0 mx-auto flex justify-start overflow-visible">
-                  <motion.div className="flex gap-16 z-50" style={{ x, willChange: 'transform'}}>
+                  <motion.div className="flex gap-16 z-50 transform-gpu" style={{ x, willChange: 'transform', originX: 0}}>
                    <a
-                     className="bg-background-secondary shrink-0 border border-border rounded-xl overflow-hidden h-85 w-108 border-xl relative flex flex-col p-8"
+                     className="bg-background-secondary shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
                      key={"mo-aesthetik"}
                    >
                      <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
@@ -186,7 +194,7 @@ export const Section1 = () => {
                    </a>
                    <a
                    href="https://mo-aesthetik.de"
-                     className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 w-108 border-xl relative flex flex-col p-8"
+                     className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
                      key={"mo-aesthetik"}
                    >
                      <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
@@ -200,7 +208,7 @@ export const Section1 = () => {
 
                     <a
                    href="https://mo-aesthetik.de"
-                     className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 w-108 border-xl relative flex flex-col p-8"
+                     className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
                      key={"mo-aesthetik"}
                    >
                      <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
@@ -213,7 +221,7 @@ export const Section1 = () => {
                    </a>
                     <a
                    href="https://mo-aesthetik.de"
-                     className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 w-108 border-xl relative flex flex-col p-8"
+                     className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
                      key={"mo-aesthetik"}
                    >
                      <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
@@ -234,7 +242,7 @@ export const Section1 = () => {
 export const Section2 = () => {
 
   return (
-    <section className="flex -mt-[50vh] justify-start items-center w-full z-100">
+    <section className="flex -mt-[30vh] justify-start items-center w-full z-100 pt-32">
             <div className="items-start flex md:flex-row flex-col justify-start w-full px-12">
               <div className="flex flex-col flex-1 gap-2">
                 <span className="py-4 z-50 font-semibold inline-flex items-center gap-1 bg-linear-to-br text-transparent from-primary to-secondary bg-clip-text

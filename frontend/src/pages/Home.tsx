@@ -1,6 +1,6 @@
 import { AiFillInstagram, AiFillTikTok, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import { TbExternalLink } from "react-icons/tb";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react"
 import MoAesthetikLogo from "/moAesthetikLogo.svg";
 

@@ -6,7 +6,7 @@ import Home from "./pages/Home.tsx"
 import Impressum from "./pages/Impressum.tsx"
 import Navbar from "./components/Navbar.tsx"
 import Footer from "./components/Footer.tsx"
-import ReactLenis, { useLenis, type LenisRef } from "lenis/react"
+import ReactLenis, { type LenisRef } from "lenis/react"
 import { useEffect, useRef } from "react"
 import { cancelFrame, frame } from "framer-motion"
 

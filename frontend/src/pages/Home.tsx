@@ -146,7 +146,7 @@ export const Section1 = () => {
 
 
     return (
-      <div className="relative w-full">
+      <div className="relative w-full z-20">
         <section ref={heroRef} style={{height: `calc(${SECTION_HEIGHT}px + 100vh)`}} className="relative w-full h-full"> 
           <div className="h-screen flex flex-col md:px-12 px-4 gap-4 justify-center items-center mt-20"> 
             <div className="flex md:flex-row flex-col justify-start w-full">
@@ -249,20 +249,18 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
           </motion.div>
         </section>
           <div ref={containerRef} className="h-[300vh] flex pt-[50vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-              <motion.div className="sticky top-0 w-full pl-16 h-screen items-center my-0 mx-auto flex justify-start overflow-visible">
+              <motion.div className="sticky overflow-x-hidden top-0 w-full pl-16 h-screen items-center my-0 mx-auto flex justify-start overflow-visible">
                   <motion.div className="flex gap-16 z-50 transform-gpu" style={{ x, willChange: 'transform', originX: 0}}>
-                   <a
-                     className="bg-background-secondary shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
-                     key={"mo-aesthetik"}
+                   <div
+                     className="shrink-0 justify-center items-center rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
                    >
-                     <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
-                     <div className="flex-col flex py-4 font-semibold">
-                      <h2>300+ Monatliche Aufrufe</h2>
-                      <h2>20+ Tägliche Termin Anfragen</h2>
-                     </div>
-                     <TbExternalLink className="absolute top-7 right-7" size={32} color={"#FCFCFC"}/>
-                     <img src={MoAesthetikLogo} className="w-50 h-50 absolute -bottom-7 right-7"/>
-                   </a>
+                     <motion.h1 
+                     initial={{opacity: 0}}
+                     whileInView={{opacity: 1}}
+                     transition={{delay: 0.2, duration: 1}}
+                     className="md:text-5xl text-4xl text-center text-primary
+                      font-semibold uppercase">unsere referenzen</motion.h1>
+                   </div>
                    <a
                    href="https://mo-aesthetik.de"
                      className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
@@ -278,30 +276,24 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
                    </a>
 
                     <a
-                   href="https://mo-aesthetik.de"
-                     className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
+                     className="bg-linear-to-br from-background-secondary from-15% to-primary shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
                      key={"mo-aesthetik"}
                    >
-                     <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                     <h1 className="text-xl font-semibold">Bald Verfügbar</h1>
                      <div className="flex-col flex py-4 font-semibold">
-                      <h2>300+ Monatliche Aufrufe</h2>
-                      <h2>20+ Tägliche Termin Anfragen</h2>
+                      <h2>Weitere Referenzen in Bearbeitung</h2>
                      </div>
                      <TbExternalLink className="absolute top-7 right-7" size={32} color={"#FCFCFC"}/>
-                     <img src={MoAesthetikLogo} className="w-50 h-50 absolute -bottom-7 right-7"/>
                    </a>
                     <a
-                   href="https://mo-aesthetik.de"
-                     className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
+                     className="bg-linear-to-br from-background-secondary from-15% to-secondary shrink-0 border border-border rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
                      key={"mo-aesthetik"}
                    >
-                     <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                     <h1 className="text-xl font-semibold">Bald Verfügbar</h1>
                      <div className="flex-col flex py-4 font-semibold">
-                      <h2>300+ Monatliche Aufrufe</h2>
-                      <h2>20+ Tägliche Termin Anfragen</h2>
+                      <h2>Weitere Referenzen in Bearbeitung</h2>
                      </div>
                      <TbExternalLink className="absolute top-7 right-7" size={32} color={"#FCFCFC"}/>
-                     <img src={MoAesthetikLogo} className="w-50 h-50 absolute -bottom-7 right-7"/>
                    </a>
                   </motion.div>
               </motion.div>
@@ -313,42 +305,103 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
 export const Section2 = () => {
 
   return (
-    <section className="flex -mt-[30vh] justify-start items-center w-full z-100 pt-32">
-            <div className="items-start flex md:flex-row flex-col justify-start w-full px-12">
-              <div className="flex flex-col flex-1 gap-2">
+    <section className="flex -mt-[30vh] justify-center items-center w-full z-100 pt-32">
+            <div className="items-start text-center flex flex-col justify-center w-full px-12 gap-16">
+              <div className="flex w-full justify-center items-center flex-col flex-1 gap-2">
                 <span className="py-4 z-50 font-semibold inline-flex items-center gap-1 bg-linear-to-br text-transparent from-primary to-secondary bg-clip-text
                                 text-2xl">
-                  Anleitung
+                  Entwickler
                 </span>
-                <h1 className="text-5xl font-semibold">Der Weg zur Webseite deiner Träume </h1>
-                <h3 className="flex-1 text-tex-secondary md:text-lg text-md">Ganz Einfach in drei Schritten eine neue Webseite anfragen.</h3> 
+                <h1 className="text-5xl font-semibold">Das sind Wir!</h1>
+                <h3 className="flex-1 text-tex-secondary md:text-xl text-lg md:w-xl">Durch viel engagement und fleiß, bauen wir dir eine unvergessliche Webseite!</h3> 
               </div>
-              <div className="flex-1 md:self-end flex justify-end flex-row gap-4 font-semibold z-50 md:py-0 py-4">
-                 <motion.a
-                  initial={false}
-                  whileHover={{
-                    scale: 1.1
-                  }}
-                  href="/"
-                  style={{boxShadow: 
-                      `0 0 2px #00D4FF,
-                        0 0 2px #00D4FF,
-                        0 0 10px #00D4FF`}}
-                  className='p-2 bg-linear-to-br from-primary to-secondary rounded-lg text-center'
-                  >
-                    Anfragen
-                  </motion.a>      
-                 <motion.a
-                  initial={false}
-                  whileHover={{
-                    scale: 1.1
-                  }}
-                  href="/"
-
-                  className='p-2 bg-linear-to-br border-border border from-background-secondary to-background-secondary rounded-lg min-w-24 text-center'
-                  >
-                    Mehr Erfahren
-                  </motion.a>      
+              <div className="w-full flex justify-center items-center gap-8">
+                <a
+                   className="bg-background-secondary w-sm gap-2 shrink-0 border border-border rounded-xl overflow-hidden border-xl relative flex flex-col p-8"
+                 >
+                   <div className="flex flex-row flex-1 items-center justify-start gap-8">
+                    <img className="rounded-full" src="/kemal.png" width={75} height={75}/>
+                    <div className="flex flex-col justify-center items-start">
+                      <h1 className="text-2xl font-semibold leading-6 text-left">Mustafa Kemal<br/>Kivrakoglu</h1>
+                      <h3 className="text-tex-secondary tracking-widest text-sm">Aus Hamburg</h3> 
+                    </div>
+                   </div>
+                   <div className="flex-row flex p-4 font-semibold">
+                    <motion.div
+                    initial={{y: 20, opacity: 0}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{ease: "easeInOut", delay: 0.1}}
+                    className="flex flex-col justify-start items-center h-auto w-24">
+                      <h1 className="font-semibold text-2xl">5J</h1>
+                      <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+                    </motion.div>
+                    <motion.div
+                    initial={{y: 20, opacity: 0}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{ease: "easeInOut", delay: 0.2}}
+                    className="flex flex-col justify-start items-center w-24">
+                      <h1 className="font-semibold text-2xl">20J</h1>
+                      <h3 className="text-tex-secondary text-sm">Alt</h3> 
+                    </motion.div>
+                    <motion.div
+                    initial={{y: 20, opacity: 0}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{ease: "easeInOut", delay: 0.3}}
+                    className="flex flex-col justify-start items-center w-24">
+                      <h1 className="font-semibold text-2xl">4.</h1>
+                      <h3 className="text-tex-secondary text-sm">Semester</h3> 
+                    </motion.div>
+                   </div>
+                   <motion.div 
+                   initial={{backgroundColor: '#00FF9D'}}
+                   whileHover={{backgroundColor: '#00D4FF'}}
+                   className="w-full p-2 bg-primary rounded-lg">
+                    <h3 className="font-semibold">Profil anschauen</h3>
+                   </motion.div>
+                </a>
+                <a
+                   className="bg-background-secondary w-sm gap-2 shrink-0 border border-border rounded-xl overflow-hidden border-xl relative flex flex-col p-8"
+                 >
+                   <div className="flex flex-row flex-1 items-center justify-start gap-8">
+                    <img className="rounded-full" src="/nuri.jpeg" width={75} height={75}/>
+                    <div className="flex flex-col justify-center items-start">
+                      <h1 className="text-2xl font-semibold">Nuri Yildirim</h1>
+                      <h3 className="text-tex-secondary tracking-widest text-sm">Aus Hamburg</h3> 
+                    </div>
+                   </div>
+                   <div className="flex-row flex p-4 font-semibold">
+                    <motion.div
+                    initial={{y: 20, opacity: 0}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{ease: "easeInOut", delay: 0.1}}
+                    className="flex flex-col justify-start items-center h-auto w-24">
+                      <h1 className="font-semibold text-2xl">5J</h1>
+                      <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+                    </motion.div>
+                    <motion.div
+                    initial={{y: 20, opacity: 0}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{ease: "easeInOut", delay: 0.2}}
+                    className="flex flex-col justify-start items-center w-24">
+                      <h1 className="font-semibold text-2xl">19J</h1>
+                      <h3 className="text-tex-secondary text-sm">Alt</h3> 
+                    </motion.div>
+                    <motion.div
+                    initial={{y: 20, opacity: 0}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{ease: "easeInOut", delay: 0.3}}
+                    className="flex flex-col justify-start items-center w-24">
+                      <h1 className="font-semibold text-2xl">2.</h1>
+                      <h3 className="text-tex-secondary text-sm">Semester</h3> 
+                    </motion.div>
+                   </div>
+                   <motion.div 
+                   initial={{backgroundColor: '#00FF9D'}}
+                   whileHover={{backgroundColor: '#00D4FF'}}
+                   className="w-full p-2 bg-primary rounded-lg">
+                    <h3 className="font-semibold">Profil anschauen</h3>
+                   </motion.div>
+                </a>
               </div>
             </div>
     </section>

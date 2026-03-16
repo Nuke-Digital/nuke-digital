@@ -1,7 +1,7 @@
 import { AiFillInstagram, AiFillTikTok, AiFillLinkedin, AiFillMail} from "react-icons/ai";
-import { TbExternalLink } from "react-icons/tb";
+import { TbExternalLink, TbLocation } from "react-icons/tb";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import MoAesthetikLogo from "/moAesthetikLogo.svg";
 
 export const websites = [
@@ -42,7 +42,7 @@ export default function Home() {
         className="absolute -z-50 left-0 top-70 w-[70vw] h-62.5 bg-primary blur-[120px] rounded-full opacity-60"/>
       </div>
 
-    <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1">
+    <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1 relative">
       <Section1/>
       <Section2/>
 
@@ -147,7 +147,7 @@ export const Section1 = () => {
 
     return (
       <div className="relative w-full z-20">
-        <section ref={heroRef} style={{height: `calc(${SECTION_HEIGHT}px + 100vh)`}} className="relative w-full h-full"> 
+        <section id="start" ref={heroRef} style={{height: `calc(${SECTION_HEIGHT}px + 100vh)`}} className="relative w-full h-full"> 
           <div className="h-screen flex flex-col md:px-12 px-4 gap-4 justify-center items-center mt-20"> 
             <div className="flex md:flex-row flex-col justify-start w-full">
               <h1 className="md:text-7xl text-5xl font-semibold flex-2 wrap-anywhere">Günstig Profesionelle Webseiten.</h1>
@@ -185,8 +185,8 @@ export const Section1 = () => {
             </div>
           </div>
           <motion.div style={{opacity}} className="md:flex hidden md:flex-row flex-col h-full w-full relative md:px-32">
-            <div className="sticky top-0 flex-1 h-screen flex items-center justify-center">
-              <motion.div style={{opacity: opacity_a, y}} className="flex flex-row gap-8">
+            <div id="about" className="sticky top-0 flex-1 h-screen flex items-center justify-center">
+              <motion.div  style={{opacity: opacity_a, y}} className="flex flex-row gap-8">
                 <span className="w-1 bg-primary"/>
                 <h2 className="md:text-7xl text-5xl uppercase font-bold">WIESO<br/>NUKE<br/>DIGITAL?</h2>
               </motion.div>
@@ -215,12 +215,12 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
               </div>
             </div>           
           </motion.div>
-          <motion.div style={{opacity}} className="flex md:hidden flex-col h-full w-full relative">
+          <motion.div  style={{opacity}} className="flex md:hidden flex-col h-full w-full relative">
             <div className="sticky top-0 flex h-screen items-center">
               <motion.div style={{opacity: opacity_a}} className="flex flex-row gap-8">
                 <span className="w-1 bg-primary"/>
                 <div className="bg-secondary w-[70vw] h-32 absolute top-75 left-5 -rotate-20 -z-50 blur-[120px]"/>
-                <motion.h2 style={{y: y_mobile}} className="md:text-7xl text-5xl uppercase font-bold">WIESO<br/>NUKE<br/>DIGITAL?</motion.h2>
+                <motion.h2 id="about" style={{y: y_mobile}} className="md:text-7xl text-5xl uppercase font-bold">WIESO<br/>NUKE<br/>DIGITAL?</motion.h2>
               </motion.div>
             </div>
 
@@ -252,6 +252,7 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
               <motion.div className="sticky overflow-x-hidden top-0 w-full pl-16 h-screen items-center my-0 mx-auto flex justify-start overflow-visible">
                   <motion.div className="flex gap-16 z-50 transform-gpu" style={{ x, willChange: 'transform', originX: 0}}>
                    <div
+                     id="referenzen" 
                      className="shrink-0 justify-center items-center rounded-xl overflow-hidden h-85 md:w-108 w-60 border-xl relative flex flex-col p-8"
                    >
                      <motion.h1 
@@ -304,20 +305,182 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
 
 export const Section2 = () => {
 
+  const [openProfile, setOpenProfile] = useState([false, false])
+
+  const scrollToKemal = () => {
+    const element = document.getElementById("kemalProfile");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollToNuri = () => {
+    const element = document.getElementById("nuriProfile");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const setTrue = (index: number) => {
+    setOpenProfile(prev => {
+      if(index == -1) {
+        setOpenProfile(prev => prev.map((_) => false));
+        return openProfile;
+      }
+      const newArr = [...prev];
+      setOpenProfile(prev => prev.map((_, i) => i === index));
+      newArr[index] = true;
+      return newArr;
+    });
+  };
+
   return (
-    <section className="flex -mt-[30vh] justify-center items-center w-full z-100 pt-32">
-            <div className="items-start text-center flex flex-col justify-center w-full px-12 gap-16">
+    <section id="Entwickler" className="flex -mt-[30vh] flex-col justify-center items-center w-full z-30 pt-32 relative">
+      <div className="flex flex-row justify-center items-center">
+        <motion.div id="kemalProfile" 
+        style={{display: openProfile[0] ? 'flex':'none'}}
+        initial={{opacity: 0}}
+        animate={{opacity: openProfile[0] ? 1:0}}
+        className="py-32 md:px-32 px-4 w-full z-40 flex justify-center md:flex-row flex-col items-start self-end gap-8 relative">
+          <button onClick={() => {setTrue(-1)}} className="absolute top-16 md:right-16 right-0 p-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="rotate-45" width="20" height="20" viewBox="0 0 24 24"><path fill='#fcfcfc' d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+          </button>
+          <div className="flex py-8 px-10 md:mx-4 rounded-xl bg-background-secondary flex-col justify-center items-center flex-1 gap-4">
+            <img className="rounded-full" src="/kemal.png" width={250} height={250}/>
+            <div className="px-4 py-2 text-tex-secondary items-center gap-2 rounded-full border-border border-2 flex">
+              <TbLocation/>
+              <h3 className="text-md">Aus Hamburg</h3> 
+            </div>
+            <h1 className="text-4xl leading-7.5 font-semibold text-center">Mustafa Kemal Kivrakoglu</h1>
+            <motion.a 
+            href="https://www.linkedin.com/in/mustafa-kemal-kivrakoglu-604949284/"
+            initial={{backgroundColor: '#00FF9D'}}
+            whileHover={{backgroundColor: '#00D4FF'}}
+            className="p-2 bg-primary text-center mt-6 rounded-lg w-full">
+              <h3 className="font-semibold">Mein LinkedIn</h3>
+            </motion.a>
+          </div>
+          <div className="flex flex-col justify-center items-center flex-1">
+            <h3 className="text-tex-secondary text-md">
+Hallo, ich bin Mustafa Kemal Kivrakoglu, 20 Jahre alt, und studiere Informatik an der Universität Hamburg. Neben meinem Studium arbeite ich bei Hamburg Bit Bots und beschäftige mich dort mit der Entwicklung von Vision Systemen für autonome Roboter. Zu meinen Kernkompetenzen gehören Projektplanung, agile Softwareentwicklung und Webentwicklung.
+
+            </h3> 
+            <div className="grid grid-cols-2 grid-rows-2 w-full gap-4 mt-4">
+              <motion.div
+              initial={{y: 20, opacity: 0}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{ease: "easeInOut", delay: 0.1}}
+              className="flex flex-col justify-start items-start bg-background-highlight p-8 rounded-xl">
+                <h1 className="font-semibold text-2xl">5J</h1>
+                <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+              </motion.div>
+              <motion.div
+              initial={{y: 20, opacity: 0}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{ease: "easeInOut", delay: 0.1}}
+              className="flex flex-col justify-start items-start bg-background-highlight p-8 rounded-xl">
+                <h1 className="font-semibold text-2xl">5J</h1>
+                <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+              </motion.div>
+              <motion.div
+              initial={{y: 20, opacity: 0}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{ease: "easeInOut", delay: 0.1}}
+              className="flex flex-col justify-start items-start bg-background-highlight p-8 rounded-xl">
+                <h1 className="font-semibold text-2xl">5J</h1>
+                <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+              </motion.div>
+              <motion.div
+              initial={{y: 20, opacity: 0}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{ease: "easeInOut", delay: 0.1}}
+              className="flex flex-col justify-start items-start bg-background-highlight p-8 rounded-xl">
+                <h1 className="font-semibold text-2xl">5J</h1>
+                <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+        <motion.div id="nuriProfile" 
+        style={{display: openProfile[1] ? 'flex':'none'}}
+        initial={{opacity: 0}}
+        animate={{opacity: openProfile[1] ? 1:0}}
+        className="py-32 md:px-32 px-4 w-full z-40 flex justify-center md:flex-row flex-col items-start self-end gap-8 relative">
+          <button onClick={() => {setTrue(-1)}} className="absolute top-16 md:right-16 right-0 p-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="rotate-45" width="20" height="20" viewBox="0 0 24 24"><path fill='#fcfcfc' d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+          </button>
+          <div className="flex py-8 px-10 md:mx-4 rounded-xl bg-background-secondary flex-col justify-center items-center flex-1 gap-4">
+            <img className="rounded-full" src="/nuri.jpeg" width={250} height={250}/>
+            <div className="px-4 py-2 text-tex-secondary items-center gap-2 rounded-full border-border border-2 flex">
+              <TbLocation/>
+              <h3 className="text-md">Aus Hamburg</h3> 
+            </div>
+            <h1 className="text-4xl leading-7.5 font-semibold text-center">Nuri Yildirim</h1>
+            <motion.a 
+            href="https://www.linkedin.com/in/nuri-yildirim-0b64a0330/"
+            initial={{backgroundColor: '#00FF9D'}}
+            whileHover={{backgroundColor: '#00D4FF'}}
+            className="p-2 bg-primary text-center mt-6 rounded-lg w-full">
+              <h3 className="font-semibold">Mein LinkedIn</h3>
+            </motion.a>
+          </div>
+          <div className="flex flex-col justify-center items-center flex-1">
+            <h3 className="text-tex-secondary text-md">
+            Hallo, ich bin Nuri Yildirim und studiere Computer Science an der Technischen Universität Hamburg. 
+            Programmieren begleitet mich schon seit meiner Kindheit und ist bis heute eine große Leidenschaft von mir. 
+            In dieser Zeit habe ich unter anderem Apps und Webseiten entwickelt und sammle weiterhin gerne neue Erfahrungen 
+            in der Software- und Webentwicklung.
+
+
+            </h3> 
+            <div className="grid grid-cols-2 grid-rows-2 w-full gap-4 mt-4">
+              <motion.div
+              initial={{y: 20, opacity: 0}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{ease: "easeInOut", delay: 0.1}}
+              className="flex flex-col justify-start items-start bg-background-highlight p-8 rounded-xl">
+                <h1 className="font-semibold text-2xl">5J</h1>
+                <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+              </motion.div>
+              <motion.div
+              initial={{y: 20, opacity: 0}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{ease: "easeInOut", delay: 0.1}}
+              className="flex flex-col justify-start items-start bg-background-highlight p-8 rounded-xl">
+                <h1 className="font-semibold text-2xl">5J</h1>
+                <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+              </motion.div>
+              <motion.div
+              initial={{y: 20, opacity: 0}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{ease: "easeInOut", delay: 0.1}}
+              className="flex flex-col justify-start items-start bg-background-highlight p-8 rounded-xl">
+                <h1 className="font-semibold text-2xl">5J</h1>
+                <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+              </motion.div>
+              <motion.div
+              initial={{y: 20, opacity: 0}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{ease: "easeInOut", delay: 0.1}}
+              className="flex flex-col justify-start items-start bg-background-highlight p-8 rounded-xl">
+                <h1 className="font-semibold text-2xl">5J</h1>
+                <h3 className="text-tex-secondary text-sm">Programmier<br/>erfahrung</h3> 
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+            <div className="items-start text-center flex flex-col justify-center w-full md:px-12 px-4 gap-16">
               <div className="flex w-full justify-center items-center flex-col flex-1 gap-2">
-                <span className="py-4 z-50 font-semibold inline-flex items-center gap-1 bg-linear-to-br text-transparent from-primary to-secondary bg-clip-text
+                <span id="devs" className="py-4 z-30 font-semibold inline-flex items-center gap-1 bg-linear-to-br text-transparent from-primary to-secondary bg-clip-text
                                 text-2xl">
                   Entwickler
                 </span>
                 <h1 className="text-5xl font-semibold">Das sind Wir!</h1>
                 <h3 className="flex-1 text-tex-secondary md:text-xl text-lg md:w-xl">Durch viel engagement und fleiß, bauen wir dir eine unvergessliche Webseite!</h3> 
               </div>
-              <div className="w-full flex justify-center items-center gap-8">
+              <div className="w-full md:flex-row flex-col flex justify-center items-center gap-8">
                 <a
-                   className="bg-background-secondary w-sm gap-2 shrink-0 border border-border rounded-xl overflow-hidden border-xl relative flex flex-col p-8"
+                   className="bg-background-secondary md:w-sm w-full gap-2 shrink-0 border border-border rounded-xl overflow-hidden border-xl relative flex flex-col p-8"
                  >
                    <div className="flex flex-row flex-1 items-center justify-start gap-8">
                     <img className="rounded-full" src="/kemal.png" width={75} height={75}/>
@@ -352,15 +515,21 @@ export const Section2 = () => {
                       <h3 className="text-tex-secondary text-sm">Semester</h3> 
                     </motion.div>
                    </div>
-                   <motion.div 
+                   <motion.button 
+                    onClick={() => {
+                      setTrue(0);
+                      setTimeout(() => {
+                        scrollToKemal();
+                      }, 100);
+                    }}
                    initial={{backgroundColor: '#00FF9D'}}
                    whileHover={{backgroundColor: '#00D4FF'}}
                    className="w-full p-2 bg-primary rounded-lg">
                     <h3 className="font-semibold">Profil anschauen</h3>
-                   </motion.div>
+                   </motion.button>
                 </a>
                 <a
-                   className="bg-background-secondary w-sm gap-2 shrink-0 border border-border rounded-xl overflow-hidden border-xl relative flex flex-col p-8"
+                   className="bg-background-secondary md:w-sm w-full gap-2 shrink-0 border border-border rounded-xl overflow-hidden border-xl relative flex flex-col p-8"
                  >
                    <div className="flex flex-row flex-1 items-center justify-start gap-8">
                     <img className="rounded-full" src="/nuri.jpeg" width={75} height={75}/>
@@ -395,12 +564,18 @@ export const Section2 = () => {
                       <h3 className="text-tex-secondary text-sm">Semester</h3> 
                     </motion.div>
                    </div>
-                   <motion.div 
+                   <motion.button 
+                    onClick={() => {
+                      setTrue(1);
+                      setTimeout(() => {
+                        scrollToNuri();
+                      }, 100);
+                    }}
                    initial={{backgroundColor: '#00FF9D'}}
                    whileHover={{backgroundColor: '#00D4FF'}}
                    className="w-full p-2 bg-primary rounded-lg">
                     <h3 className="font-semibold">Profil anschauen</h3>
-                   </motion.div>
+                   </motion.button>
                 </a>
               </div>
             </div>

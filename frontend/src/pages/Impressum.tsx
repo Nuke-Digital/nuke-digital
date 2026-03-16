@@ -5,36 +5,21 @@ export default function Impressum() {
   const subjekt = "Anfrage";
 
   return (
-    <div className="min-h-dvh bg-slate-900 text-white">
-      {/* Header */}
-      <header className="flex items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
-        <a href="/" className="shrink-0">
-          <img
-            className="h-10 w-auto sm:h-12 md:h-14"
-            src="/g6.png"
-            alt="Nuke Digital"
-          />
-        </a>
-
-        <motion.a
-          href="/"
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ duration: 0.12 }}
-          className="p-0.5 rounded-full bg-linear-to-br from-emerald-500 via-teal-300 to-sky-500"
-        >
-          <div className="bg-slate-900 rounded-full px-4 py-2 sm:px-6">
-            <p className="text-white text-sm sm:text-base font-medium">Home</p>
-          </div>
-        </motion.a>
-      </header>
-
+    <div className="relative">
+      <div className="absolute w-full h-full overflow-x-hidden inset-0">
+      <motion.div
+        className="fixed -z-50 right-10 top-20 w-[37vw] h-60 rotate-[-30deg] blur-[120px] bg-primary rounded-full opacity-60"
+      />
+        <motion.div initial={{opacity: 0.6}} animate={{opacity: [0.6, 0.4, 0.6, 0.8, 0.6]}} 
+        transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut'}} 
+        className="fixed -z-50 left-0 top-70 w-[70vw] h-62.5 bg-primary blur-[120px] rounded-full opacity-60"/>
+      </div>
+    <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1 relative">
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
-        className="px-4 sm:px-6 pb-16 sm:pb-24"
+        className="px-4 sm:px-6 pb-16 sm:pb-24 pt-40"
       >
         <div className="max-w-3xl mx-auto flex flex-col gap-10">
           {/* Titel */}
@@ -47,7 +32,6 @@ export default function Impressum() {
             >
               Impressum
             </h1>
-            <div className="mt-3 h-0.5 w-24 bg-linear-to-r from-emerald-500 via-teal-300 to-sky-500" />
           </div>
 
           {/* Card/Abschnitt-Style: fühlt sich auf Handy sofort besser an */}
@@ -126,6 +110,7 @@ export default function Impressum() {
           </section>
         </div>
       </motion.main>
+    </div>
     </div>
   );
 }

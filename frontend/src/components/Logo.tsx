@@ -2,8 +2,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 export default function Logo({isExpanded}: {isExpanded: boolean}) {
   return (
-       <motion.div
+       <motion.a
        id='logo'
+       href='/'
         initial={false}
         style={{boxShadow: 
              `0 0 2px #00D4FF,
@@ -38,6 +39,6 @@ export default function Logo({isExpanded}: {isExpanded: boolean}) {
           </motion.h1>
         )}
       </AnimatePresence>
-      </motion.div>
+      </motion.a>
   )
 }

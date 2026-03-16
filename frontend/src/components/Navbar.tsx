@@ -6,19 +6,19 @@ import { NavLink } from 'react-router-dom'
 export const links = [
     {
         title: "Start",
-        href: "/"
+        href: "#"
     },
     {
-        title: "About",
-        href: "/about"
+        title: "Über Uns",
+        href: "#about"
     },
     {
-        title: "Websites",
-        href: "/websites"
+        title: "Webseiten",
+        href: "#referenzen"
     },
     {
-        title: "Contact",
-        href: "/contact"
+        title: "Entwickler",
+        href: "#devs"
     }
 ]
 
@@ -63,7 +63,7 @@ export default function Navbar() {
 
   return (
     <>
-    <div id='navbar' className='flex font-semibold justify-center flex-row fixed w-full top-0 z-50 md:text-lg text-md px-4' >
+    <div id='navbar' className='flex font-semibold justify-center flex-row fixed w-full top-0 z-60 md:text-lg text-md px-4' >
       <div className='lg:mx-16 mx-4 py-6 flex w-full md:px-12'>
         <div className='flex flex-1 flex-row gap-2 items-center'>
           {/*<img src={Logo} className='size-9'/>
@@ -74,9 +74,9 @@ export default function Navbar() {
         <div className='z-20 flex-2 justify-center flex items-center'>
           <ul className=''>
           {!isMobile && links.map((item) => 
-              <NavLink id='links' to={item.href} className='p-2'>
+              <a id='links' href={item.href} className='p-2'>
                   {item.title}
-              </NavLink>
+              </a>
           )}
           </ul>
         </div>
@@ -109,15 +109,15 @@ export default function Navbar() {
       </div>
       <ul className='flex flex-col mx-4'>
       {links.map((item) => 
-          <NavLink id='links' to={item.href} className='p-2'>
+          <a id='links' href={"/"+item.href} onClick={() => setOpenMobile(false)} className='p-2'>
               {item.title}
-          </NavLink>
+          </a>
       )}
-          <NavLink id='links' to={"/impressum"} className='p-2'>
+          <NavLink onClick={() => setOpenMobile(false)}  id='links' to={"/impressum"} className='p-2'>
               Impressum
           </NavLink>
       <ul className='flex flex-col pt-6'>
-          <NavLink id='links' to={""} className='p-2'>
+          <NavLink  id='links' to={""} className='p-2'>
               Instagram
           </NavLink>
           <NavLink id='links' to={""} className='p-2'>

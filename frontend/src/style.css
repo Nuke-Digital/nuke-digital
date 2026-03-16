@@ -11,7 +11,8 @@
   --color-background-primary: oklch(0.1682 0.043 280.74); /* 0C0C21 */
   --color-background-secondary: oklch(1 0 0 / 4%); /* FFFFFF4 */
   --color-background-cta: oklch(0.1822 0 0); /* 121212 */
-  --color-background-hover: oklch(0.2178 0 0); /* 1A1A1A */
+  --color-background-hover: oklch(0.2178 0 0);
+  --color-background-highlight: oklch(1 0 0 / 10%); /* 1A1A1A */
 
   --color-primary: oklch(0.8799 0.21 156.86);           /* #00FF9D */
   --color-secondary: oklch(0.8043 0.145943 219.51);             /* 00D4FF */

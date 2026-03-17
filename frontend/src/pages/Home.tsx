@@ -180,7 +180,7 @@ export const Section1 = () => {
               </div>
             </div>
             <div className="flex flex-row justify-start w-full">
-              <h3 className="flex-1 text-tex-secondary md:text-lg text-lg">Alternative zu überteurten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
+              <h3 className="flex-1 text-tex-secondary md:text-lg text-lg">Alternative zu überteuerten Webentwicklern von Studenten für professionelle Webseiten ganz nach deinen Wünschen.</h3> 
               <div className="md:flex-1"/>
             </div>
           </div>
@@ -476,7 +476,7 @@ Hallo, ich bin Mustafa Kemal Kivrakoglu, 20 Jahre alt, und studiere Informatik a
                   Entwickler
                 </span>
                 <h1 className="text-5xl font-semibold">Das sind Wir!</h1>
-                <h3 className="flex-1 text-tex-secondary md:text-xl text-lg md:w-xl">Durch viel engagement und fleiß, bauen wir dir eine unvergessliche Webseite!</h3> 
+                <h3 className="flex-1 text-tex-secondary md:text-xl text-lg md:w-xl">Durch viel Engagement und Fleiß, bauen wir dir eine unvergessliche Webseite!</h3> 
               </div>
               <div className="w-full md:flex-row flex-col flex justify-center items-center gap-8">
                 <a

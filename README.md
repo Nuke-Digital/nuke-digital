@@ -1,4 +1,4 @@
-![Nuke Digital Logo](frontend/g101.png) NuKe Digital
+![Nuke Digital Logo](frontend/public/g101.png) NuKe Digital
 
 > One-Pager Webseite für NuKe Digital.
 

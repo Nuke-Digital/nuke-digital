@@ -23,8 +23,8 @@ Bevor du startest, stelle sicher, dass du Folgendes installiert hast:
 
 1.  **Repository klonen:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[DeinBenutzername]/nuke-digital.git
-    cd [DeinRepoName]
+    git clone https://github.com/Nuke-Digital/nuke-digital.git
+    cd nuke-digital
     ```
 
 1.  **Verzeichnis wechseln:**

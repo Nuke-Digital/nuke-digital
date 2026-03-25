@@ -1,4 +1,6 @@
-![Nuke Digital Logo](frontend/public/g101.png) NuKe Digital
+<p align="center">
+  <img src="frontend/public/g101.png" alt="Nuke Digital Logo" width="200" height="auto" />
+</p> NuKe Digital
 
 > One-Pager Webseite für NuKe Digital.
 

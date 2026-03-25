@@ -1,4 +1,4 @@
-# 🚀 [NuKe Digital]
+# (/frontend/g101.png) NuKe Digital
 
 > One-Pager Webseite für NuKe Digital.
 

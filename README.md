@@ -1,7 +1,7 @@
+# NuKe Digital
 <p>
   <img src="frontend/public/g101.png" alt="Nuke Digital Logo" width="200" height="auto" />
 </p>
-# NuKe Digital
 
 > One-Pager Webseite für NuKe Digital.
 

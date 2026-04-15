@@ -17,14 +17,6 @@ export const websites = [
     id: "3",
     title: "Mo-Ästhetik"
   },
-  {
-    id: "4",
-    title: "Mo-Ästhetik"
-  },
-  {
-    id: "5",
-    title: "Mo-Ästhetik"
-  }
 ]
 
 export default function Home() {
@@ -219,8 +211,8 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
             <div className="sticky top-0 flex h-screen items-center">
               <motion.div style={{opacity: opacity_a}} className="flex flex-row gap-8">
                 <span className="w-1 bg-primary"/>
-                <div className="bg-secondary w-[70vw] h-32 absolute top-75 left-5 -rotate-20 -z-50 blur-[120px]"/>
-                <motion.h2 id="about" style={{y: y_mobile}} className="md:text-7xl text-5xl uppercase font-bold">WIESO<br/>NUKE<br/>DIGITAL?</motion.h2>
+                <div className="bg-secondary w-[70vw] h-32 absolute top-75 left-5 -z-50 blur-[120px] transform-gpu will-change-transform"/>
+                <motion.h2 id="about" style={{y: y_mobile}} className="will-change-transform transform-gpu md:text-7xl text-5xl uppercase font-bold">WIESO<br/>NUKE<br/>DIGITAL?</motion.h2>
               </motion.div>
             </div>
 
@@ -248,7 +240,8 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
             </div>           
           </motion.div>
         </section>
-          <div ref={containerRef} className="h-[300vh] flex pt-[50vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+        <>
+          <div ref={containerRef} className="h-[300vh] md:flex hidden pt-[50vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
               <motion.div className="sticky overflow-x-hidden top-0 w-full pl-16 h-screen items-center my-0 mx-auto flex justify-start overflow-visible">
                   <motion.div className="flex gap-16 z-50 transform-gpu" style={{ x, willChange: 'transform', originX: 0}}>
                    <div
@@ -299,6 +292,79 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
                   </motion.div>
               </motion.div>
           </div>
+          <div ref={containerRef} className="md:hidden flex py-[50vh] mt-64 relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+                  <motion.div className="flex gap-16 z-50 transform-gpu flex-col justify-center">
+                   <div
+                     id="referenzen" 
+                     className="justify-center items-center rounded-xl overflow-hidden h-85 px-16 border-xl relative flex flex-col p-8"
+                   >
+                     <motion.h1 
+                     initial={{opacity: 0}}
+                     whileInView={{opacity: 1}}
+                     transition={{delay: 0.2, duration: 1}}
+                     className="md:text-5xl text-4xl text-center text-primary
+                      font-semibold uppercase">unsere referenzen</motion.h1>
+                   </div>
+                   <div className="w-full px-4">
+                    <motion.a
+                      initial={{x: 300, opacity: 0}}
+                      whileInView={{x: 0, opacity: 1}}
+                      transition={{duration: 0.4}}
+                      viewport={{once: true}}
+                      href="https://mo-aesthetik.de"
+                      className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] border border-border rounded-xl overflow-hidden h-85 border-xl relative flex flex-col p-8"
+                      key={"mo-aesthetik"}
+                    >
+                      <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                      <div className="flex-col flex py-4 font-semibold">
+                        <h2>300+ Monatliche Aufrufe</h2>
+                        <h2>20+ Tägliche Termin Anfragen</h2>
+                      </div>
+                      <TbExternalLink className="absolute top-7 right-7" size={32} color={"#FCFCFC"}/>
+                      <img src={MoAesthetikLogo} className="w-50 h-50 absolute -bottom-7 right-7"/>
+                    </motion.a>
+                   </div>
+                   <div className="w-full px-4">
+                    <motion.a
+                      initial={{x: 300, opacity: 0}}
+                      whileInView={{x: 0, opacity: 1}}
+                      transition={{duration: 0.4}}
+                      viewport={{once: true}}
+                      href="https://mo-aesthetik.de"
+                      className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] border border-border rounded-xl overflow-hidden h-85 border-xl relative flex flex-col p-8"
+                      key={"mo-aesthetik"}
+                    >
+                      <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                      <div className="flex-col flex py-4 font-semibold">
+                        <h2>300+ Monatliche Aufrufe</h2>
+                        <h2>20+ Tägliche Termin Anfragen</h2>
+                      </div>
+                      <TbExternalLink className="absolute top-7 right-7" size={32} color={"#FCFCFC"}/>
+                      <img src={MoAesthetikLogo} className="w-50 h-50 absolute -bottom-7 right-7"/>
+                    </motion.a>
+                   </div>
+                   <div className="w-full px-4">
+                    <motion.a
+                      initial={{x: 300, opacity: 0}}
+                      whileInView={{x: 0, opacity: 1}}
+                      transition={{duration: 0.4}}
+                      viewport={{once: true}}
+                      href="https://mo-aesthetik.de"
+                      className="bg-linear-to-br from-background-secondary from-15% to-[#DCC7A1] border border-border rounded-xl overflow-hidden h-85 border-xl relative flex flex-col p-8"
+                      key={"mo-aesthetik"}
+                    >
+                      <h1 className="text-xl font-semibold">Mo-Ästhetik</h1>
+                      <div className="flex-col flex py-4 font-semibold">
+                        <h2>300+ Monatliche Aufrufe</h2>
+                        <h2>20+ Tägliche Termin Anfragen</h2>
+                      </div>
+                      <TbExternalLink className="absolute top-7 right-7" size={32} color={"#FCFCFC"}/>
+                      <img src={MoAesthetikLogo} className="w-50 h-50 absolute -bottom-7 right-7"/>
+                    </motion.a>
+                   </div>
+                  </motion.div>
+          </div>
+        </>
       </div>
     )
 }

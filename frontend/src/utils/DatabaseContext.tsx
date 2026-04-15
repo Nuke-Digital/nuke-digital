@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState, useContext, type ReactNode } from 'react'
+import { createContext, useEffect, useState, useContext, type ReactNode } from 'react'
 
 interface DatabaseProviderProps {
   children: ReactNode; 
@@ -17,7 +17,8 @@ export function DatabaseProvider({children}:DatabaseProviderProps) {
   const [title, setTitle] = useState("");
 
   useEffect(() => {
-
+    setTitle("")
+    setLoading(true)
   }, [])
 
 

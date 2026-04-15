@@ -240,8 +240,7 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit√
             </div>           
           </motion.div>
         </section>
-        <>
-          <div ref={containerRef} className="h-[300vh] md:flex hidden pt-[50vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+          <div ref={containerRef} className="h-[300vh] flex pt-[50vh] relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
               <motion.div className="sticky overflow-x-hidden top-0 w-full pl-16 h-screen items-center my-0 mx-auto flex justify-start overflow-visible">
                   <motion.div className="flex gap-16 z-50 transform-gpu" style={{ x, willChange: 'transform', originX: 0}}>
                    <div
@@ -292,7 +291,7 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit√
                   </motion.div>
               </motion.div>
           </div>
-          <div ref={containerRef} className="md:hidden flex py-[50vh] mt-64 relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+          {/*<div ref={containerRef} className="md:hidden flex py-[50vh] mt-64 relative mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
                   <motion.div className="flex gap-16 z-50 transform-gpu flex-col justify-center">
                    <div
                      id="referenzen" 
@@ -364,7 +363,7 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit√
                    </div>
                   </motion.div>
           </div>
-        </>
+          */}
       </div>
     )
 }

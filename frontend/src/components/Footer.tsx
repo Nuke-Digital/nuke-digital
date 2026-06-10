@@ -10,15 +10,24 @@ export default function Footer() {
         <div className="flex flex-1  w-full flex-row px-4 md:px-12 gap-4 justify-end items-center text-left">
           <ul className='grid grid-flow-col md:grid-rows-3 grid-rows-2 gap-x-8'>
             {links.map((item) => 
-              <a id='links' href={"/"+item.href} className='p-2'>
+              <a id='links' href={item.href} className='p-2'>
                 {item.title}
               </a>
             )}
+            <a id='links' className='p-2'>
+              Kontakt
+            </a>
+            <a id='links' href='https://portal.nuke-digital.com' className='p-2'>
+              Kundenportal
+            </a>
             <a id='links' href='/impressum' className='p-2'>
               Impressum
             </a>
             <a id='links' className='p-2'>
               Datenschutz
+            </a>
+            <a id='links' href='/agb' className='p-2'>
+              AGB
             </a>
           </ul>
         </div>

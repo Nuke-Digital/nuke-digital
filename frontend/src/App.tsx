@@ -9,6 +9,7 @@ import Footer from "./components/Footer.tsx"
 import ReactLenis, { type LenisRef } from "lenis/react"
 import { useEffect, useRef } from "react"
 import { cancelFrame, frame } from "framer-motion"
+import Agb from "./pages/Agb.tsx"
 
 export default function App() {
 
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/" element={<Home/>}/>
         {/*<Route path="/datenschutz" element={<Datenschutz/>}/>*/}
         <Route path="/impressum" element={<Impressum/>}/> 
+        <Route path="/agb" element={<Agb/>}/> 
       </Routes>
       <Footer/>
     </div>

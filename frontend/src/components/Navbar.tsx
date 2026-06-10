@@ -6,19 +6,19 @@ import { NavLink } from 'react-router-dom'
 export const links = [
     {
         title: "Start",
-        href: "#"
+        href: "/#"
     },
     {
         title: "Über Uns",
-        href: "#about"
+        href: "/#about"
     },
     {
         title: "Webseiten",
-        href: "#referenzen"
+        href: "/#referenzen"
     },
     {
         title: "Entwickler",
-        href: "#devs"
+        href: "/#devs"
     }
 ]
 

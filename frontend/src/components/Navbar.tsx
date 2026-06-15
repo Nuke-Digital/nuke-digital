@@ -16,6 +16,10 @@ export const links = [
         title: "Webseiten",
         href: "/#referenzen"
     },
+        {
+        title: "Service",
+        href: "/#service"
+    },
     {
         title: "Entwickler",
         href: "/#devs"

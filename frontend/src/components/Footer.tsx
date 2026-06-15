@@ -8,7 +8,7 @@ export default function Footer() {
           <h3 className="text-secondary md:text-md text-xs">WEBENTWICKLUNG | HOSTING | DESIGN</h3>
         </div>
         <div className="flex flex-1  w-full flex-row px-4 md:px-12 gap-4 justify-end items-center text-left">
-          <ul className='grid grid-flow-col md:grid-rows-3 grid-rows-2 gap-x-8'>
+          <ul className='grid grid-flow-col md:grid-rows-3 grid-rows-4 md:gap-x-8 md:w-auto w-full'>
             {links.map((item) => 
               <a id='links' href={item.href} className='p-2'>
                 {item.title}

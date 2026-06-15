@@ -1,6 +1,6 @@
 import { AiFillInstagram, AiFillTikTok, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import { TbExternalLink, TbLocation } from "react-icons/tb";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react"
 import MoAesthetikLogo from "/moAesthetikLogo.svg";
 
@@ -36,6 +36,7 @@ export default function Home() {
 
     <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1 relative">
       <Section1/>
+      <Section3/>
       <Section2/>
 
 
@@ -399,7 +400,7 @@ export const Section2 = () => {
   };
 
   return (
-    <section id="Entwickler" className="flex -mt-[30vh] flex-col justify-center items-center w-full z-30 pt-32 relative">
+    <section id="Entwickler" className="flex md:-mt-[30vh] flex-col justify-center items-center w-full z-30 pt-32 relative">
       <div className="flex flex-row justify-center items-center">
         <motion.div id="kemalProfile" 
         style={{display: openProfile[0] ? 'flex':'none'}}
@@ -647,3 +648,139 @@ Hallo, ich bin Mustafa Kemal Kivrakoglu, 20 Jahre alt, und studiere Informatik a
     </section>
   )
 }
+
+const services = [
+  {
+    id: 1,
+    title: "Individuelles Design",
+    description:
+      "Wir erstellen eine einzigartige Webseite, die perfekt auf deine Marke und deine Zielgruppe abgestimmt ist.",
+  },
+  {
+    id: 2,
+    title: "Responsive Entwicklung",
+    description:
+      "Unsere Webseiten sind für alle Geräte optimiert, damit deine Kunden jederzeit und überall Zugriff haben.",
+  },
+  {
+    id: 3,
+    title: "SEO-Optimierung",
+    description:
+      "Wir sorgen dafür, dass deine Webseite in den Suchmaschinen gut gefunden wird, um mehr Besucher anzuziehen.",
+  },
+  {
+    id: 4,
+    title: "Moderne Animationen",
+    description:
+      "Wir integrieren flüssige Animationen, die deine Webseite lebendig machen und Besucher begeistern.",
+  },
+];
+
+export const Section3 = () => {
+  const [openId, setOpenId] = useState<number | null>(1);
+
+  return (
+    <section
+      id="service"
+      className="flex flex-col justify-start items-start w-full z-30 py-16 relative min-h-screen"
+    >
+      <div className="items-start flex flex-col justify-center w-full md:px-12 px-4 gap-16">
+        {/* Header */}
+        <div className="flex w-full justify-start items-start flex-col flex-1 gap-2">
+          <span
+            id="devs"
+            className="py-4 z-30 font-semibold inline-flex items-center gap-1 bg-linear-to-br text-transparent from-primary to-secondary bg-clip-text text-2xl"
+          >
+            Service
+          </span>
+          <div className="flex md:flex-row flex-col w-full flex-1 gap-8">
+            <div className="flex flex-1 flex-col">
+              <h1 className="text-5xl font-semibold">
+                Webseiten Schnell, Einfach, Gut.
+              </h1>
+              <h3 className="flex-1 text-tex-secondary md:text-xl text-lg md:w-xl">
+                Bei uns bekommst du mehr als nur eine Webseite. Wir bieten dir
+                eine umfassende Lösung für dein digitales Image.
+              </h3>
+            </div>
+            <div className="flex flex-1 justify-end items-end">
+              <div className="md:w-auto w-full">
+                <motion.button
+                  onClick={() => {}}
+                  initial={{ backgroundColor: "#00FF9D" }}
+                  whileHover={{ backgroundColor: "#00D4FF" }}
+                  className="w-full p-2 bg-primary rounded-lg"
+                >
+                  <h3 className="font-semibold">Jetzt anfragen!</h3>
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col w-full h-[80vh] md:flex-row gap-16">
+          <div className="flex flex-1 w-full">
+            <ul className="flex flex-col flex-1 w-full">
+              {services.map((service, index) => {
+                const isOpen = openId === service.id;
+                const isLast = index === services.length - 1;
+
+                return (
+                  <li
+                    key={service.id}
+                    className={`flex flex-col gap-2 py-8 w-full ${
+                      !isLast ? "border-b border-border" : ""
+                    }`}
+                  >
+                    <button
+                      onClick={() =>
+                        setOpenId(isOpen ? null : service.id)
+                      }
+                      className="flex items-center justify-between w-full text-left group"
+                    >
+                      <h2 className="text-3xl font-semibold">
+                        {service.title}
+                      </h2>
+                      <motion.span
+                        animate={{ rotate: isOpen ? 45 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="text-3xl font-light text-tex-secondary group-hover:text-primary transition-colors ml-4 shrink-0"
+                      >
+                        +
+                      </motion.span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="content"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <p className="text-tex-secondary md:text-xl text-lg md:w-xl pt-1">
+                            {service.description}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="flex flex-1 w-full pb-32">
+            <img
+              src="/service_2.jpeg"
+              className="w-full h-full object-cover rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

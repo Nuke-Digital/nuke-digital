@@ -400,7 +400,7 @@ export const Section2 = () => {
   };
 
   return (
-    <section id="Entwickler" className="flex md:-mt-[30vh] flex-col justify-center items-center w-full z-30 pt-32 relative">
+    <section id="Entwickler" className="flex -mt-[30vh] flex-col justify-center items-center w-full z-30 pt-32 relative">
       <div className="flex flex-row justify-center items-center">
         <motion.div id="kemalProfile" 
         style={{display: openProfile[0] ? 'flex':'none'}}
@@ -719,7 +719,7 @@ export const Section3 = () => {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col w-full h-[80vh] md:flex-row gap-16">
+        <div className="flex flex-col w-full md:h-[80vh] md:flex-row gap-16">
           <div className="flex flex-1 w-full">
             <ul className="flex flex-col flex-1 w-full">
               {services.map((service, index) => {

@@ -6,10 +6,6 @@ export default function Logo({isExpanded}: {isExpanded: boolean}) {
        id='logo'
        href='/'
         initial={false}
-        style={{boxShadow: 
-             `0 0 2px #00D4FF,
-              0 0 2px #00D4FF,
-              0 0 10px #00D4FF`}}
         className='p-1 text-xl bg-linear-to-br from-primary to-secondary rounded-lg flex justify-center items-center'
         animate={{
           width: isExpanded ? '140px':'36px'

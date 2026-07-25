@@ -3,6 +3,7 @@ import { TbExternalLink, TbLocation } from "react-icons/tb";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react"
 import MoAesthetikLogo from "/moAesthetikLogo.svg";
+import CardCarousell from "../components/cardCarousell";
 
 export const websites = [
   {
@@ -25,13 +26,21 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <div className="absolute w-full h-full overflow-x-hidden inset-0">
-      <motion.div
-        className="absolute -z-50 right-10 top-20 w-[37vw] h-60 rotate-[-30deg] blur-[120px] bg-primary rounded-full opacity-60"
+      <div className="absolute w-full h-full overflow-x-hidden inset-0 bg-blur"
+      >
+      <div
+        className="
+          absolute
+          w-screen
+          md:h-screen
+          h-[90vh]
+          md:opacity-60
+          opacity-40
+          -z-30
+          bg-primary
+          [clip-path:polygon(83.88%_13.75%,100%_21%,100%_79.25%,50.38%_100%,0%_93.75%,1%_62.5%,60.75%_54.75%)]
+        "
       />
-        <motion.div initial={{opacity: 0.6}} animate={{opacity: [0.6, 0.4, 0.6, 0.8, 0.6]}} 
-        transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut'}} 
-        className="absolute -z-50 left-0 top-70 w-[70vw] h-62.5 bg-primary blur-[120px] rounded-full opacity-60"/>
       </div>
 
     <div className="lg:mx-16 mx-4 border-l border-r border-border border-dashed -mt-20 mb-1 relative">
@@ -109,8 +118,10 @@ export default function Home() {
         </section>
       </main>
     </div>
-      <div className="absolute -z-50 -left-15 -bottom-50 w-[80vw] h-50 bg-primary blur-[120px] rounded-full opacity-60" />
-      <div className="md:block hidden absolute -z-50 left-175 -bottom-50 w-50 h-50 bg-primary blur-[120px] rounded-full opacity-60" />
+    <div className="bg-blur">
+      <div className="absolute -z-50 -left-15 -bottom-50 w-[80vw] h-50 bg-primary rounded-full opacity-60" />
+      <div className="md:block hidden absolute -z-50 left-175 -bottom-50 w-50 h-50 bg-primary rounded-full opacity-60" />
+    </div>
   </div>
   );
 }
@@ -141,20 +152,16 @@ export const Section1 = () => {
     return (
       <div className="relative w-full z-20">
         <section id="start" ref={heroRef} style={{height: `calc(${SECTION_HEIGHT}px + 100vh)`}} className="relative w-full h-full"> 
-          <div className="h-screen flex flex-col md:px-12 px-4 gap-4 justify-center items-center mt-20"> 
-            <div className="flex md:flex-row flex-col justify-start w-full">
+          <div className="h-[110vh] relative flex flex-col gap-4 justify-end items-center mt-20"> 
+            <div className="flex md:flex-row flex-col justify-start w-full md:px-12 px-4">
               <h1 className="md:text-7xl text-5xl font-semibold flex-2 wrap-anywhere">G체nstig Profesionelle Webseiten.</h1>
-              <div className="flex-1 md:self-end justify-start flex flex-row gap-4 font-semibold z-50 md:py-0 py-4 text-lg">
+              <div className="flex-1 md:self-end justify-end flex flex-row gap-4 font-semibold z-50 md:py-0 py-4 text-lg">
                  <motion.a
                   initial={false}
                   whileHover={{
                     scale: 1.1
                   }}
                   href="/"
-                  style={{boxShadow: 
-                      `0 0 2px #00D4FF,
-                        0 0 2px #00D4FF,
-                        0 0 10px #00D4FF`}}
                   className='p-2 bg-linear-to-br from-primary to-secondary rounded-lg text-center'
                   >
                     Anfragen
@@ -172,18 +179,21 @@ export const Section1 = () => {
                   </motion.a>      
               </div>
             </div>
-            <div className="flex flex-row justify-start w-full">
+            <div className="flex flex-row justify-start w-full md:px-12 px-4">
               <h3 className="flex-1 text-tex-secondary md:text-lg text-lg">Alternative zu 체berteuerten Webentwicklern von Studenten f체r professionelle Webseiten ganz nach deinen W체nschen.</h3> 
               <div className="md:flex-1"/>
             </div>
+              <CardCarousell/>
           </div>
           <motion.div style={{opacity}} className="md:flex hidden md:flex-row flex-col h-full w-full relative md:px-32">
             <div id="about" className="sticky top-0 flex-1 h-screen flex items-center justify-center">
               <motion.div  style={{opacity: opacity_a, y}} className="flex flex-row gap-8">
                 <span className="w-1 bg-primary"/>
+                <div className="w-full h-full bg-blur">
+                  <div className="bg-secondary w-[70vw] h-[40vh] absolute top-0 -left-16 opacity-50"/>
+                </div>
                 <h2 className="md:text-7xl text-5xl uppercase font-bold">WIESO<br/>NUKE<br/>DIGITAL?</h2>
               </motion.div>
-                <motion.div initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once: true}} transition={{duration: 0.5, ease: 'easeInOut'}} className="bg-secondary w-[70vw] h-32 absolute top-75 left-0 -rotate-5 -z-50 blur-[120px]"/>
             </div>
             <div className="h-full flex flex-col flex-1 items-stretch">
               <div className="flex flex-1 items-center flex-col justify-center gap-4">
@@ -212,11 +222,9 @@ Dabei steht die Entwicklung moderner Websites mit Leidenschaft und hoher Qualit�
             <div className="sticky top-0 flex h-screen items-center">
               <motion.div style={{opacity: opacity_a}} className="flex flex-row gap-8">
                 <span className="w-1 bg-primary"/>
-                <div className="bg-secondary w-[70vw] h-32 absolute top-75 left-5 -z-50 blur-[120px] transform-gpu will-change-transform"/>
                 <motion.h2 id="about" style={{y: y_mobile}} className="will-change-transform transform-gpu md:text-7xl text-5xl uppercase font-bold">WIESO<br/>NUKE<br/>DIGITAL?</motion.h2>
               </motion.div>
             </div>
-
             <div className="h-full flex flex-col flex-1 items-stretch pl-8 pr-2">
               <div className="flex flex-1 items-center flex-col justify-center gap-4">
                 <h2 className="uppercase md:text-4xl text-2xl text-primary">preis g체nstig entwickelt von Studenten</h2>

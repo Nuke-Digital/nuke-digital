@@ -72,3 +72,19 @@ html {
 #logo {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-blur {
+  filter: blur(64px);
+  -webkit-filter: blur(64px);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+@media (width < 64rem) {
+  .bg-blur {
+  filter: blur(32px);
+  -webkit-filter: blur(32px);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+}

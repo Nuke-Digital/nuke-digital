@@ -1,0 +1,34 @@
+[
+  {
+    "id": "kemal",
+    "name": "Mustafa Kemal Kivrakoglu",
+    "image": "/kemal.png",
+    "location": "Aus Hamburg",
+    "age": "20J",
+    "semester": "4.",
+    "linkedin": "https://www.linkedin.com/in/mustafa-kemal-kivrakoglu-604949284/",
+    "bio": "Hallo, ich bin Mustafa Kemal Kivrakoglu, 20 Jahre alt, und studiere Informatik an der Universitaet Hamburg. Neben meinem Studium arbeite ich bei Hamburg Bit Bots und beschaeftige mich dort mit der Entwicklung von Vision Systemen fuer autonome Roboter. Zu meinen Kernkompetenzen gehoeren Projektplanung, agile Softwareentwicklung und Webentwicklung.",
+    "stats": [
+      { "value": "5J", "label": "Programmiererfahrung" },
+      { "value": "20J", "label": "Alt" },
+      { "value": "4.", "label": "Semester" },
+      { "value": "Web", "label": "Fokus" }
+    ]
+  },
+  {
+    "id": "nuri",
+    "name": "Nuri Yildirim",
+    "image": "/nuri.jpeg",
+    "location": "Aus Hamburg",
+    "age": "19J",
+    "semester": "2.",
+    "linkedin": "https://www.linkedin.com/in/nuri-yildirim-0b64a0330/",
+    "bio": "Hallo, ich bin Nuri Yildirim und studiere Computer Science an der Technischen Universitaet Hamburg. Programmieren begleitet mich schon seit meiner Kindheit und ist bis heute eine grosse Leidenschaft von mir. In dieser Zeit habe ich unter anderem Apps und Webseiten entwickelt und sammle weiterhin gerne neue Erfahrungen in der Software- und Webentwicklung.",
+    "stats": [
+      { "value": "5J", "label": "Programmiererfahrung" },
+      { "value": "19J", "label": "Alt" },
+      { "value": "2.", "label": "Semester" },
+      { "value": "Apps", "label": "Fokus" }
+    ]
+  }
+]

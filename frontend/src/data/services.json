@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Individuelles Design",
+        "description":
+            "Wir erstellen eine einzigartige Webseite, die perfekt auf deine Marke und deine Zielgruppe abgestimmt ist."
+    },
+    {
+        "id": 2,
+        "title": "Responsive Entwicklung",
+        "description":
+            "Unsere Webseiten sind für alle Geräte optimiert, damit deine Kunden jederzeit und überall Zugriff haben."
+    },
+    {
+        "id": 3,
+        "title": "SEO-Optimierung",
+        "description":
+            "Wir sorgen dafür, dass deine Webseite in den Suchmaschinen gut gefunden wird, um mehr Besucher anzuziehen."
+    },
+    {
+        "id": 4,
+        "title": "Moderne Animationen",
+        "description":
+            "Wir integrieren flüssige Animationen, die deine Webseite lebendig machen und Besucher begeistern."
+    }
+]
